@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { max-width: 300px; margin: auto; }
+        input { margin-bottom: 10px; width: 100%; padding: 8px; }
+        button { padding: 10px; }
+        .error { color: red; text-align: center; }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <div class="error" id="errorMsg"></div>
+    </form>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('errorMsg');
+
+            // Simple hardcoded credentials for demonstration
+            if (username === 'WhisperLerk' && password === 'SecretChat') {
+                // Redirect to another page on successful login
+                window.location.href = 'welcome.html'; // Change this to your target page
+            } else {
+                // Show error message
+                errorMsg.textContent = 'Invalid username or password.';
+            }
+        });
+    </script>
+</body>
+</html>
